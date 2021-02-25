@@ -11,7 +11,7 @@ export function* socketMainConnect({ payload }) {
   try {
     yield put(loadingMaskTurnOn({ payload: { name: 'axiosEngineInstance/device/registerOne', message: '', action: () => { } } }));
 
-    let data;
+    let data; 
     if (IS_OFFLINE_VERSION) {
       data = engine.registerOneDemoData;
     } else {
