@@ -1,7 +1,37 @@
 @import "./base.scss";
 @import "~taro-ui/dist/style/components/icon.scss";
 @import "~taro-ui/dist/style/components/tab-bar.scss";
+@import "~taro-ui/dist/style/components/badge.scss";
 
 page {
   height: 100%;
+  background-color: $primary_color;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex_item {
+  flex: 1;
+}
+
+.flex_align_center {
+  align-items: center;
+}
+
+.flex_between {
+  justify-content: space-between;
+}
+
+.flex_row {
+  flex-direction: row;
+}
+
+.flex_column {
+  flex-direction: column;
+}
+
+.main_container {
+  background-color: $primary_color;
 }

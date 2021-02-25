@@ -41,6 +41,7 @@
     "@tarojs/react": "3.0.27",
     "@tarojs/runtime": "3.0.27",
     "@tarojs/taro": "3.0.27",
+    "classnames": "^2.2.6",
     "cross-fetch": "^3.0.6",
     "lodash": "^4.17.21",
     "qs": "^6.9.6",

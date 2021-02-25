@@ -1,24 +1,28 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import Taro, { setNavigationBarColor } from "@tarojs/taro";
 import { connect } from 'react-redux'
 import { View } from '@tarojs/components'
 
 import { indexAdd, indexMinus, asyncAdd } from './index.action'
 import BottomTabBar from '../../components/common/bottomTabBar';
+import Main from '../../components/index/main'
 
-// import './index.scss'
+import './index.scss'
 
 const Index = (props) => {
 
+    useEffect(() => {  }, [])
     return (
-      <View className='index'>  
+      <> 
+        <Main />
         <BottomTabBar current={0} />
-      </View>                 
+      </>                 
     );
 };
 
 
 const mapStateToProps = (state) => ({
-    singlton: { },
+    index: { },
   });
   
 const mapDispatchToProps = (dispatch) => ({

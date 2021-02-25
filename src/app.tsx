@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Taro, { setNavigationBarColor } from "@tarojs/taro";
 import { Provider } from 'react-redux'
 
 import configStore from './store'
@@ -8,7 +9,8 @@ import './app.scss'
 const store = configStore()
 
 class App extends Component {
-  componentDidMount () {}
+  componentDidMount () {
+  }
 
   componentDidShow () {}
 

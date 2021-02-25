@@ -12,8 +12,8 @@ const Main = (props) => {
   // const dispatch = useDispatch();
 
   return (
-    <View className='index_main'>
-      <Text>发现音乐🎵</Text>
+    <View className='mine_main flex'>
+      <Text>我的🎵</Text>
     </View>
   );
 };

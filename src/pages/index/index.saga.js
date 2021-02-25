@@ -31,5 +31,5 @@ export function* socketMainConnect({ payload }) {
 }
 
 export default [
-  takeLatest(actionTypes.ASYNC_ADD, asyncAddSaga),
+  takeLatest(actionTypes.ASYNC_ADD, socketMainConnect),
 ];
