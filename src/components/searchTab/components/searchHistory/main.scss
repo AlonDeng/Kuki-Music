@@ -1,0 +1,37 @@
+@import "../../../../base.scss";
+
+.search_history {
+    padding: 1rem;
+    position: relative;
+    .search_history_top {
+        margin-bottom: 0.5rem;
+        .search_history_title {
+    
+            .search_history_title_text {
+                font-size: 1.2rem;
+            }
+        }
+    
+        .search_history_icon {
+            position: absolute;
+            right: 1.5rem;
+            top: 1rem;
+        }
+    }
+    
+    .search_history_bottom {
+        justify-content: center;
+        align-items: center;
+        .search_bottom_scroll {
+            height: 2rem;
+            margin-left: 1rem;
+            white-space: nowrap;
+            .search_scroll_item {
+                padding: 0.5rem 0.5rem;
+                font-size: 0.8rem;
+                display: inline-block;
+                margin-right: 0.8rem;
+            }
+        }
+    }
+}

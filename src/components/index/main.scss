@@ -1,5 +1,8 @@
+@import "../../base.scss";
 .index_main {
     justify-content: center;
     align-items: center;
     display: flex;
+    flex-direction: column;
 }
+

@@ -2,6 +2,10 @@
 @import "~taro-ui/dist/style/components/icon.scss";
 @import "~taro-ui/dist/style/components/tab-bar.scss";
 @import "~taro-ui/dist/style/components/badge.scss";
+@import "~taro-ui/dist/style/components/search-bar.scss";
+@import "~taro-ui/dist/style/components/button.scss";
+@import "~taro-ui/dist/style/components/flex.scss";
+
 
 page {
   height: 100%;
@@ -33,5 +37,13 @@ page {
 }
 
 .main_container {
+  background-color: $primary_color;
+}
+
+.at-search-bar__action {
+  background-color: $active_color;
+}
+
+.at-search-bar {
   background-color: $primary_color;
 }

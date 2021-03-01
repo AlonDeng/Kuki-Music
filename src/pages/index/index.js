@@ -3,7 +3,6 @@ import Taro, { setNavigationBarColor } from "@tarojs/taro";
 import { connect } from 'react-redux'
 import { View } from '@tarojs/components'
 
-import { indexAdd, indexMinus, asyncAdd } from './index.action'
 import BottomTabBar from '../../components/common/bottomTabBar';
 import Main from '../../components/index/main'
 
