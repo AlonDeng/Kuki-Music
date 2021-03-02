@@ -12,7 +12,7 @@ export const exampleInitialState = {
         videoInfo: [],
         sim_query: [],
     },
-    HotList: [],
+    hotList: [],
     isRequesting: false,
 };
 
@@ -29,7 +29,7 @@ function reducer(state = exampleInitialState, { type: actionType, payload }) {
     case actionTypes.SEARCH_HOT_REQUEST:
       return { ...state, ...{ isRequesting: true } };
     case actionTypes.SEARCH_HOT_SUCCESS:
-      return { ...state, ...{ isRequesting: false, HotList: payload.data  } };
+      return { ...state, ...{ isRequesting: false, hotList: payload.data  } };
     case actionTypes.SEARCH_HOT_FAILURE:
         return { ...state, ...{ isRequesting: false,  } };
 

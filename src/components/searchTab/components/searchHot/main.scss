@@ -1,0 +1,63 @@
+@import '../../../../base.scss';
+.searchHot_container {
+    padding: 1rem;
+    padding-top: 0rem;
+    .searchHot_title {
+        .searchHot_title_text {
+            font-size: 1.2rem;
+            color: $text_color;
+        }
+    }
+    .searchHot_List {
+        .searchHot_item_container {
+            height: 4rem;
+            width: 100%;
+            padding-top: 0.5rem;
+            .searchHot_item_title {
+                color: $text_color;
+                align-items: center;
+                height: 100%;
+                display: flex;
+                margin-right: 1rem;
+            }
+            & .note {
+                font-weight: bold;
+                color: $note_color;
+                font-size: 1.3rem;
+            }
+            .searchHot_item_context {
+                justify-content: center;
+                .item_context_top {
+                    .item_context_top_name {
+                        font-size: 1.1rem;
+                        color: $text_color;
+                        margin-right: 0.5rem;
+                    }
+                    & .note {
+                        font-weight: bold;
+                    }
+                    .item_context_top_num {
+                        margin-right: 0.5rem;
+                        color: $text_color;
+                        font-size: 1rem;
+                    }
+                    .serchHot_item_img {
+                        top: 1rem;
+                        height: 1rem;
+                        width: 2rem;
+                    }
+                }
+                .item_context_bottom {
+                    color: $text_color;
+                    font-size: 1rem;
+                }
+            }
+        }
+    }
+    .searchHot_more {
+        justify-content: center;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        color: $active_color;
+    }
+}

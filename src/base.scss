@@ -1,5 +1,7 @@
 $primary_color: #808082;
 $active_color: #44FDFF;
+$note_color: #FF3A39;
+$text_color: #ffffff;
 @mixin text-ellipsis {
   overflow: hidden;
   /*文本不会换行*/

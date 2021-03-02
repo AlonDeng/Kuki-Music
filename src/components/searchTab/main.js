@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { View, Button, Text } from '@tarojs/components';
+import { View, Button, Text, ScrollView } from '@tarojs/components';
 import Taro, { setNavigationBarColor } from "@tarojs/taro";
 import { AtSearchBar } from 'taro-ui';
 import _ from 'lodash';
@@ -10,6 +10,7 @@ import { getSearchHotRequest, getSearchInfoRequest } from '../../pages/search/se
 
 import './main.scss'
 import SearchHistory from './components/searchHistory/main';
+import SearchHot from './components/searchHot/main';
 
 const Main = (props) => {   
   // const index = useSelector((state) => state.index);
@@ -37,7 +38,10 @@ const Main = (props) => {
         onActionClick={() => searchConfirm()}
         focus
       />
-      <SearchHistory />
+      <ScrollView className='flex flex_column searchTab_scroll' scrollY>
+        <SearchHistory />
+        <SearchHot />
+      </ScrollView>
     </View>
   );
 };
