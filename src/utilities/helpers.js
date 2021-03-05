@@ -1,4 +1,5 @@
 import Taro from "@tarojs/taro";
+import { toastOpen } from '../pages/singletion/singletion.action'
 
 export const promiseTimeout = (promise, ms) => {
   const timeout = new Promise((resolve, reject) => {
@@ -24,4 +25,14 @@ export const keywordInHistory = {
   remove: () => {
     return Taro.removeStorageSync('keywordsList')
   },
+}
+
+export const waitDevToast = (dispatch) => {
+  dispatch(toastOpen({ toastText: '該功能正在開發中...' }))
+}
+
+export const countNum = (num) => {
+  if(num >= 10000 && num < 100000000) return String(Math.floor(num / 10000)) + '萬';
+  else if(num >= 100000000) return String(Math.floor(num / 100000000)) + '億';
+  else return String(num);
 }

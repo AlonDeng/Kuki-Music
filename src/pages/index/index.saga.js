@@ -1,35 +1,122 @@
 import { delay, put, takeLatest, call, select } from 'redux-saga/effects';
 import _ from 'lodash';
-import { actionTypes, indexAdd } from './index.action';
+import { actionTypes,
+  getBannerInfoSuccess,
+  getBannerInfoFailure,
+  getBallInfoFailure,
+  getBallInfoSuccess,
+  getRecomSongInfoSuccess,
+  getRecomSongInfoFailure,
+  getRecomMVInfoSuccess,
+  getRecomMVInfoFailure,
+  getRecomElecInfoSuccess,
+  getRecomElecInfoFailure
+  } from './index.action';
 
-import { axiosInstance } from '../../utilities/fetch';
+import axiosInstance from '../../utilities/fetch';
 
 
 
-export function* socketMainConnect({ payload }) {
-  // console.log('[DEBUGDEBUG]', 'rootScreen', 'saga', 'socketMainConnect', payload);
+export function* getBannerInfoSaga({ payload }) {
+  // console.log('[DEBUGDEBUG]', 'saga', 'getBannerInfoSaga', payload);
   try {
-    // yield put(loadingMaskTurnOn({ payload: { name: 'axiosEngineInstance/device/registerOne', message: '', action: () => { } } }));
-
-    // let data; 
-    // if (IS_OFFLINE_VERSION) {
-    //   data = engine.registerOneDemoData;
-    // } else {
-    //   const { data: _data, error, errorCode, errorMsg } = yield call(axiosInstance.request, { method: 'post', url: '/device/registerOne', data: payload });
+    // console.log('[DEBUGDEBUG]', 'getSearchHotSaga', 'saga');
+    
+      const { data: { banners = [] } } = yield call(axiosInstance.request, { 
+          method: 'get',
+          url: '/banner',
+          params: payload
+        });
     //   if (error) throw new Error(`errorCode: ${errorCode}, ${errorMsg}`);
-    //   data = _data;
-    // }
 
-    // // console.log('[DEBUGDEBUG]', 'rootScreen', 'saga', 'socketMainConnect', 'end', data);
-    // yield put(loadingMaskTurnOff({ payload: { name: 'axiosEngineInstance/device/registerOne', message: '', action: () => { } } }));
-    // yield put(socketMainConnectSuccess(data));
+    // console.log('[DEBUGDEBUG]', 'getBannerInfoSaga',banners);
+    yield put(getBannerInfoSuccess({ banners }));
   } catch (err) {
-    // yield put(loadingMaskTurnOff({ payload: { name: 'axiosEngineInstance/device/registerOne', message: '', action: () => { } } }));
-    // // console.log('===', 'rootScreen_socketMainConnect', 'saga', 'err', err);
-    // yield put(socketMainConnectFailure(err));
+    // console.log('===', 'rootScreen_socketMainConnect', 'saga', 'err', err);
+    yield put(getBannerInfoFailure(err));
+  }
+}
+
+export function* getBallInfoSaga({ payload }) {
+  // console.log('[DEBUGDEBUG]', 'saga', 'getBannerInfoSaga', payload);
+  try {
+    // console.log('[DEBUGDEBUG]', 'getSearchHotSaga', 'saga');
+    
+      const { data: { data } } = yield call(axiosInstance.request, { 
+          method: 'get',
+          url: '/homepage/dragon/ball',
+        });
+    //   if (error) throw new Error(`errorCode: ${errorCode}, ${errorMsg}`);
+
+    // console.log('[DEBUGDEBUG]', 'getBannerInfoSaga',data);
+    yield put(getBallInfoSuccess({ ballInfo: data }));
+  } catch (err) {
+    // console.log('===', 'rootScreen_socketMainConnect', 'saga', 'err', err);
+    yield put(getBallInfoFailure(err));
+  }
+}
+
+export function* getRecomSongInfoSaga({ payload }) {
+  // console.log('[DEBUGDEBUG]', 'saga', 'getBannerInfoSaga', payload);
+  try {
+    // console.log('[DEBUGDEBUG]', 'getSearchHotSaga', 'saga');
+    
+      const { data: { result } } = yield call(axiosInstance.request, { 
+          method: 'get',
+          url: '/personalized',
+        });
+    //   if (error) throw new Error(`errorCode: ${errorCode}, ${errorMsg}`);
+
+    // console.log('[DEBUGDEBUG]', 'getRecomSongInfoSaga',data);
+    yield put(getRecomSongInfoSuccess({ recomSongInfo: result }));
+  } catch (err) {
+    console.log('===', 'rootScreen_socketMainConnect', 'saga', 'err', err);
+    yield put(getRecomSongInfoFailure(err));
+  }
+}
+
+export function* getRecomMVInfoSaga({ payload }) {
+  // console.log('[DEBUGDEBUG]', 'saga', 'getBannerInfoSaga', payload);
+  try {
+    // console.log('[DEBUGDEBUG]', 'getSearchHotSaga', 'saga');
+    
+      const { data: { result } } = yield call(axiosInstance.request, { 
+          method: 'get',
+          url: '/personalized/mv',
+        });
+    //   if (error) throw new Error(`errorCode: ${errorCode}, ${errorMsg}`);
+
+    console.log('[DEBUGDEBUG]', 'getRecomSongInfoSaga',result);
+    yield put(getRecomMVInfoSuccess({ recomMVInfo: result }));
+  } catch (err) {
+    // console.log('===', 'rootScreen_socketMainConnect', 'saga', 'err', err);
+    yield put(getRecomMVInfoFailure(err));
+  }
+}
+
+export function* getRecomElecInfoSaga({ payload }) {
+  // console.log('[DEBUGDEBUG]', 'saga', 'getBannerInfoSaga', payload);
+  try {
+    // console.log('[DEBUGDEBUG]', 'getSearchHotSaga', 'saga');
+    
+      const { data: { result } } = yield call(axiosInstance.request, { 
+          method: 'get',
+          url: '/personalized/djprogram',
+        });
+    //   if (error) throw new Error(`errorCode: ${errorCode}, ${errorMsg}`);
+
+    console.log('[DEBUGDEBUG]', 'getRecomSongInfoSaga',result);
+    yield put(getRecomElecInfoSuccess({ recomElecInfo: result }));
+  } catch (err) {
+    // console.log('===', 'rootScreen_socketMainConnect', 'saga', 'err', err);
+    yield put(getRecomElecInfoFailure(err));
   }
 }
 
 export default [
-  takeLatest(actionTypes.ASYNC_ADD, socketMainConnect),
+  takeLatest(actionTypes.BANNER_INFO_REQUEST, getBannerInfoSaga),
+  takeLatest(actionTypes.BALL_INFO_REQUEST, getBallInfoSaga),
+  takeLatest(actionTypes.RECOMSONG_INFO_REQUEST, getRecomSongInfoSaga),
+  takeLatest(actionTypes.RECOMMV_INFO_REQUEST, getRecomMVInfoSaga),
+  takeLatest(actionTypes.RECOMELEC_INFO_REQUEST, getRecomElecInfoSaga),
 ];

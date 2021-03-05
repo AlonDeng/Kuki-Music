@@ -1,0 +1,44 @@
+@import '../../../base.scss';
+.recomMV_slide {
+    white-space: nowrap;
+    .recomMV_slide_imgCon {
+        display: inline-flex;
+        padding-left: 0.5rem;
+        position: relative;
+        justify-content: center;
+        align-items: center;
+        .recomMV_slide_imgConIn {
+            height: 10rem;
+            width: 12rem;
+            background-color: #808082;
+        }
+        .recomMV_slide_img {
+            height: 10rem;
+            width: 12rem;
+            border-radius: 1rem;
+        }
+        .recomMV_slide_nums {
+            position: absolute;
+            top: 0.4rem;
+            right: 0.5rem;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.6rem;
+            color: #ffffff;
+            background-color: black;
+            opacity: 0.2;
+            padding-right: 0.2rem;
+            padding-left: 0.2rem;
+            border-radius: 1rem;
+        }
+        .recomMV_slide_content {
+            @include multi-text-overflow-ellipsis(2);
+            font-size: 0.8rem;
+            margin-top: 10px;
+            height: 2.3rem;
+            width: 5.5rem;
+            color: #ffffff;
+            white-space: pre-line;
+        }
+    }
+}

@@ -1,27 +1,31 @@
 import React, { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector, connect } from 'react-redux';
 import { View, Button, Text } from '@tarojs/components'
 import _ from 'lodash';
 
 import './searchTab.scss'
 import Main from '../../components/searchTab/main';
+import LoadingView from '../../components/common/loadingView/loadingView';
 
 const SearchTab = (props) => {
-  // const index = useSelector((state) => state.index);
-  // const { num = 0 } = index;
-  // const dispatch = useDispatch();
+  const { isRequesting = false } = props;
   return (
     <View className='flex'>
+      <LoadingView isLoading={isRequesting} />
       <Main />
     </View>
   );
 };
 
-SearchTab.propTypes = {
+const mapStateToProps = (state) => {
+  return {                                                                            
+    isRequesting: state.search.isRequesting,
+  };
+}
+  
+  
+const mapDispatchToProps = (dispatch) => ({
+  //   startup: () => dispatch(StartupActions.startup()),
+});
 
-};
-
-SearchTab.defaultProps = {
-};
-
-export default SearchTab;
+export default  connect(mapStateToProps, mapDispatchToProps)(SearchTab);

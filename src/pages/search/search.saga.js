@@ -29,7 +29,6 @@ export function* getSearchInfoSaga({ payload }) {
 export function* getSearchHotSaga({ payload }) {
   // console.log('[DEBUGDEBUG]', 'rootScreen', 'saga', 'socketMainConnect', payload);
   try {
-    console.log('[DEBUGDEBUG]', 'getSearchHotSaga', 'saga');
     
       const { data: { data, code } } = yield call(axiosInstance.request, { 
           method: 'get',
@@ -37,7 +36,7 @@ export function* getSearchHotSaga({ payload }) {
         });
     //   if (error) throw new Error(`errorCode: ${errorCode}, ${errorMsg}`);
 
-    console.log('[DEBUGDEBUG]', 'getSearchHotSaga', 'dsdsdsds',data);
+    // console.log('[DEBUGDEBUG]', 'getSearchHotSaga', 'dsdsdsds',data);
     yield put(getSearchHotSuccess({ data }));
   } catch (err) {
     console.log('===', 'rootScreen_socketMainConnect', 'saga', 'err', err);

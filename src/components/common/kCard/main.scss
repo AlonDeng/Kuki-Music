@@ -1,0 +1,27 @@
+@import '../../../base.scss';
+.kCard_container {
+    margin-top: 0.5rem;
+    background-color: $card_color;
+    border-radius: 0.5rem;
+    .kCard_top {
+        justify-content: space-between;
+        padding: 0.5rem;
+        .kCard_top_title {
+            color: $text_color;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+        .kCard_top_more {
+            color: $text_color;
+            font-size: 0.6rem;
+            justify-content: center;
+            align-items: center;
+            border-width: 0.5px;
+            border-color: #A3A3A5;
+            border-style: solid;
+            padding-left: 0.5rem;
+            padding-right: 0.5rem;
+            border-radius: 33%;
+        }
+    }
+}

@@ -5,7 +5,9 @@
 @import "~taro-ui/dist/style/components/search-bar.scss";
 @import "~taro-ui/dist/style/components/button.scss";
 @import "~taro-ui/dist/style/components/flex.scss";
-
+@import "~taro-ui/dist/style/components/activity-indicator.scss";
+@import '~taro-ui/dist/style/components/loading.scss';
+@import "~taro-ui/dist/style/components/toast.scss";
 
 page {
   height: 100%;
@@ -34,16 +36,4 @@ page {
 
 .flex_column {
   flex-direction: column;
-}
-
-.main_container {
-  background-color: $primary_color;
-}
-
-.at-search-bar__action {
-  background-color: $active_color;
-}
-
-.at-search-bar {
-  background-color: $primary_color;
 }

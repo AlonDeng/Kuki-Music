@@ -2,10 +2,21 @@ $primary_color: #808082;
 $active_color: #44FDFF;
 $note_color: #FF3A39;
 $text_color: #ffffff;
+$card_color: #7B7B7D;
 @mixin text-ellipsis {
   overflow: hidden;
   /*文本不会换行*/
   white-space: nowrap;
   /*当文本溢出包含元素时，以省略号表示超出的文本*/
+  text-overflow: ellipsis;
+}
+
+@mixin multi-text-overflow-ellipsis($line-to-show-number: 2) {
+  display: -webkit-box;
+  -webkit-line-clamp: $line-to-show-number;
+  /*! autoprefixer: off */
+  -webkit-box-orient: vertical;
+  /* autoprefixer: on */
+  overflow: hidden;
   text-overflow: ellipsis;
 }
