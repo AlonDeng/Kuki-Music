@@ -29,7 +29,7 @@ const Main = (props) => {
 
   const goSearchMainPage = () => {
     Taro.reLaunch({
-      url: "/pages/searchTab/index"
+      url: "/pages/search/searchTab/index"
     });
   }
 

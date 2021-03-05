@@ -11,9 +11,9 @@ import LoadingView from '../../components/common/loadingView/loadingView';
 import './index.scss'
 
 const Index = (props) => {
-    // console.warn('Index', props);
-    const { isRequesting = false, toastInfo = { } } = props;
-    const { toastText = '', toastIcon = '', isToast = false } = toastInfo;
+  const { isRequesting = false, toastInfo = { } } = props;
+  const { toastText = '', toastIcon = '', isToast = false } = toastInfo;
+  // console.warn('Index', isToast);
     return (
       <> 
         <LoadingView isLoading={isRequesting} />
