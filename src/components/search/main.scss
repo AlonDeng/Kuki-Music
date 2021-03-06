@@ -1,0 +1,191 @@
+@import '../../base.scss';
+
+.total_crad {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-top: 0.5rem;
+    padding-top: 0.5rem;
+}
+
+.songs_bottom {
+    justify-content: space-between;
+    border-top: 1px solid $primary_color;
+    .songs_bottom_info {
+        flex: 1;
+        overflow: hidden;
+        .songs_bottom_sname {
+            @include text_ellipsis;
+            font-weight: bold;
+        }
+        .songs_bottom_sinfo {
+            @include text_ellipsis;
+            font-size: 0.8rem;
+        }
+    }
+    .songs_bottom_icon {
+        justify-content: center;
+        align-items: center;
+        margin-right: 0.5rem;
+        margin-left: 0.5rem;
+    }
+}
+
+.k_playlist_bottom {
+    align-items: center;
+    .k_playlist_imgCon {
+        margin-right: 0.5rem;
+        height: 3rem;
+        width: 3rem;
+        .k_playlist_img {
+            width: 3rem;
+            height: 3rem;
+            border-radius: 0.5rem;
+            background-color: $primary_color;
+        }
+    }
+    .k_playlist_info {
+        flex: 1;
+        overflow: hidden;
+        .k_playlist_name {
+            @include text_ellipsis;
+            // font-weight: bold;
+        }
+        .k_playlist_detial {
+            @include text_ellipsis;
+            font-size: 0.8rem;
+        }
+    }
+}
+
+.k_vedio_bottom {
+    align-items: center;
+    .k_vedio_imgCon {
+        margin-right: 0.5rem;
+        height: 4rem;
+        width: 6rem;
+        .k_vedio_img {
+            width: 6rem;
+            border-radius: 0.5rem;
+            height: 4rem;
+            background-color: $primary_color;
+        }
+    }
+    .k_vedio_info {
+        flex: 1;
+        overflow: hidden;
+        .k_vedio_name {
+            @include text_ellipsis;
+        }
+        .k_vedio_detial {
+            @include text_ellipsis;
+            font-size: 0.8rem;
+        }
+    }
+}
+
+.k_artist_bottom {
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0;
+    padding-top: 0;
+    .k_artist_imgCon {
+        align-items: center;
+        flex: 1;
+        overflow: hidden;
+        .k_artist_img {
+            width: 3rem;
+            height: 3rem;
+            background-color: $primary_color;
+            border-radius: 100%;
+            margin-right: 0.5rem;
+        }
+        .k_artist_name {
+            @include text_ellipsis;
+            
+        }
+    }
+    .k_artist_info {
+        align-items: center;
+        padding-right: 0.5rem;
+        margin-left: 0.5rem;
+        
+        .k_artist_info_text {
+            margin-left: 0.2rem;
+            @include text_ellipsis;
+            font-size: 0.8rem;
+            text-align: center;
+            padding: 13px;
+            padding-left: 0;
+            padding-right: 0;
+            line-height: 2.7rem;
+        }
+    }
+}
+
+.k_sim_query_bottom {
+    padding-top: 0;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    overflow: hidden;
+    .k_sim_query_bottom_item {
+        float: left;
+        margin-right: 1rem;
+        margin-bottom: 0.5rem;
+        padding: 0.5rem;
+        background-color: $primary_color;
+        color: $text_color;
+        border-radius: 1rem;
+    }
+}
+
+.k_user_bottom {
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0;
+    padding-top: 0;
+    .k_user_imgCon {
+        align-items: center;
+        .k_user_img {
+            width: 3rem;
+            height: 3rem;
+            background-color: $primary_color;
+            border-radius: 100%;
+            margin-right: 0.5rem;
+        }
+        .k_user_name {
+            @include text_ellipsis;
+        }
+    }
+    .k_user_follow {
+        align-items: center;
+        justify-content: center;
+        padding: 0.1rem;
+        padding-left: 0.4rem;
+        padding-right: 0.4rem;
+        border-radius: 1rem;
+        font-size: 0.8rem;
+        color: $note_color;
+        border: 1px solid $note_color;
+    }
+}
+
+.bottom_all {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid $primary_color;
+    justify-content: center;
+    align-items: center;
+    color: $text_color;
+    font-size: 0.8rem;
+}
+
+.tab_nodata {
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    color: $text_color;
+    padding-top: 4rem;
+}

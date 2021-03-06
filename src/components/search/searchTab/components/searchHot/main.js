@@ -8,12 +8,11 @@ import { AtIcon } from 'taro-ui'
 
 import './main.scss'
 
-import { keywordInHistory } from '../../../../utilities/helpers';
+import { keywordInHistory } from '../../../../../utilities/helpers';
 
 const SearchHot = (props) => {
   const { hotList = [] } = useSelector((state) => state.search);
   const [isMore, setIsMore] = useState(false);
-  console.log('index',hotList);
   // const { num = 0 } = index;
   // const dispatch = useDispatch();
   let renderList;
@@ -22,6 +21,12 @@ const SearchHot = (props) => {
   const setMore = () => {
     setIsMore(true);
   }
+  const goSearch = (data) => {
+    Taro.navigateTo({
+      url: `/pages/search/index?keywords=${data}`
+    })
+  };
+
   return (
     <View className='flex flex_column searchHot_container'>
       <View className='searchHot_title'>
@@ -30,7 +35,11 @@ const SearchHot = (props) => {
 
       <View className='flex flex_column searchHot_List'>
         {renderList.map((item, index) => (
-            <View className='flex searchHot_item_container' key={_.get(item, 'searchWord', '無歌名')}>
+            <View
+              className='flex searchHot_item_container'
+              key={_.get(item, 'searchWord', '無歌名')}
+              onClick={() => goSearch(_.get(item, 'searchWord', '無歌名'))}
+            >
 
             <View className={classnames({
                 searchHot_item_title: true,

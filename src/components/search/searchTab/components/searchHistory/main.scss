@@ -1,4 +1,4 @@
-@import "../../../../base.scss";
+@import "../../../../../base.scss";
 
 .search_history {
     padding: 0.5rem;
@@ -9,6 +9,7 @@
     
             .search_history_title_text {
                 font-size: 1.2rem;
+                color: $text_color;
             }
         }
     
@@ -25,8 +26,10 @@
         .search_bottom_scroll {
             height: 2rem;
             margin-left: 1rem;
+            
             white-space: nowrap;
             .search_scroll_item {
+                color: $text_color;
                 padding: 0.5rem 0.5rem;
                 font-size: 0.8rem;
                 display: inline-block;

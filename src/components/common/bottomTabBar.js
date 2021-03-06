@@ -11,7 +11,6 @@ import { asyncAdd, indexAdd, indexMinus } from '../../pages/index/index.action';
 const BottomTabBar = (props) => {
   const { current } = props;
   const dispatch = useDispatch();
-  useEffect(() => { setNavigationBarColor({ backgroundColor: '#808082', frontColor: '#ffffff' }) }, [])
 
   const switchTab = (cur) => {
     switch (cur) {

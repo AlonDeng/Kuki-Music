@@ -1,16 +1,16 @@
 export default {
   pages: [
+    'pages/search/index',
+    'pages/search/searchTab/index',
     'pages/index/index',
     // 'pages/searchTab/index',
-    'pages/search/searchTab/index',
     'pages/mine/index',
     'pages/cloudVillage/index',
-    'pages/search/index',
   ],
   window: {
     backgroundTextStyle: 'light',
-    navigationBarBackgroundColor: '#fff',
+    navigationBarBackgroundColor: '#808082',
     navigationBarTitleText: 'WeChat',
-    navigationBarTextStyle: 'black'
+    navigationBarTextStyle: 'white'
   }
 }

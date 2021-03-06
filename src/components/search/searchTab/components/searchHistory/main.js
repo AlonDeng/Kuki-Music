@@ -8,7 +8,7 @@ import _ from 'lodash';
 
 import './main.scss'
 
-import { keywordInHistory } from '../../../../utilities/helpers';
+import { keywordInHistory } from '../../../../../utilities/helpers';
 
 const SearchHistory = (props) => {
   // const index = useSelector((state) => state.index);
@@ -18,6 +18,12 @@ const SearchHistory = (props) => {
   useDidShow(() => {
     setHistoryList(keywordInHistory.get());
   })
+
+  const goSearch = (data) => {
+    Taro.navigateTo({
+      url: `/pages/search/index?keywords=${data}`
+    })
+  };
   return (
     <View className='search_history flex flex_column'>
       {historyList.length > 0 ? (
@@ -40,7 +46,11 @@ const SearchHistory = (props) => {
       <View className='flex search_history_bottom'>
             <ScrollView className='flex flex_row search_bottom_scroll' scrollX>
               {historyList.map((item) => (
-                <Text key={item} className='search_scroll_item'>{item}</Text>
+                <Text
+                  key={item}
+                  className='search_scroll_item'
+                  onClick={() => goSearch(item)}
+                >{item}</Text>
               ))}
             </ScrollView>
       </View>

@@ -36,3 +36,23 @@ export const countNum = (num) => {
   else if(num >= 100000000) return String(Math.floor(num / 100000000)) + '億';
   else return String(num);
 }
+
+export function checkObj () {
+  const args = Array.from(arguments);
+  let flag = false;
+  args.forEach((i) => {
+    if (Object.keys(i).length !== 0) flag = true;
+  })
+  return flag;
+}
+
+export const formatNumber = (n) => {
+  n = n.toString()
+  return n[1] ? n : '0' + n
+}
+
+export const formatDuration  = (ms) => {
+  let minutes = formatNumber(parseInt(ms / 60000));
+  let seconds = formatNumber(parseInt((ms / 1000) % 60));
+  return `${minutes}:${seconds}`;
+}

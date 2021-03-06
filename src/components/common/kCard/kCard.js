@@ -9,19 +9,21 @@ import _ from 'lodash';
 import './main.scss'
 
 const KCard = (props) => {
-    const { title = '標題名', secTitle = '更多>', secTitleFn = () => {} } = props;
+    const { title = '標題名', secTitle = '更多>', secTitleFn = () => {}, children, isSecT = true, ...otherProps } = props;
 
   return (
-      <View className='flex flex_column kCard_container'>
+      <View className='flex flex_column kCard_container' {...otherProps}>
           <View className='flex flex_row kCard_top'>
               <Text className='kCard_top_title'>{title}</Text>
-              <View
-                className='flex kCard_top_more'
-                onClick={() => secTitleFn()}
-              >{secTitle}</View>
+              {isSecT ? (
+                <View
+                  className='flex kCard_top_more'
+                  onClick={() => secTitleFn()}
+                >{secTitle}</View>
+              ) : null}
           </View>
 
-          {props.children}
+          {children}
       </View>
   );
 };

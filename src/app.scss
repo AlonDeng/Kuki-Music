@@ -8,6 +8,7 @@
 @import "~taro-ui/dist/style/components/activity-indicator.scss";
 @import '~taro-ui/dist/style/components/loading.scss';
 @import "~taro-ui/dist/style/components/toast.scss";
+@import "~taro-ui/dist/style/components/tabs.scss";
 
 page {
   height: 100%;
@@ -36,4 +37,22 @@ page {
 
 .flex_column {
   flex-direction: column;
+}
+
+.at-search-bar {
+  background-color: $primary_color;
+}
+.at-tabs__header {
+  background-color: $primary_color;
+}
+
+.at-tabs__item {
+  color: $text_color;
+}
+.at-tabs__item--active {
+  color: $active_color;
+}
+
+.at-tabs__item-underline {
+  background-color: $active_color;
 }

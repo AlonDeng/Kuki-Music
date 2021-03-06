@@ -5,8 +5,8 @@ import Taro, { setNavigationBarColor } from "@tarojs/taro";
 import { AtSearchBar } from 'taro-ui';
 import _ from 'lodash';
 
-import { keywordInHistory } from '../../utilities/helpers';
-import { getSearchHotRequest, getSearchInfoRequest } from '../../pages/search/search.action';
+import { keywordInHistory } from '../../../utilities/helpers';
+import { getSearchHotRequest, getSearchInfoRequest } from '../../../pages/search/search.action';
 
 import './main.scss'
 import SearchHistory from './components/searchHistory/main';
@@ -28,6 +28,9 @@ const Main = (props) => {
   const searchConfirm = () => {
     if (searchValue === '') return;
     keywordInHistory.set(searchValue);
+    Taro.navigateTo({
+      url: `/pages/search/index?keywords=${searchValue}`
+    })
   };
   return (
     <View className='searchTab_main flex flex_column'>

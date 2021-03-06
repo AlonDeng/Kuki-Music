@@ -3,7 +3,7 @@ import { useDispatch, useSelector, connect } from 'react-redux';
 import { View, Button, Text } from '@tarojs/components'
 import _ from 'lodash';
 
-import Main from '../../../components/searchTab/main';
+import Main from '../../../components/search/searchTab/main';
 import LoadingView from '../../../components/common/loadingView/loadingView';
 
 const SearchTab = (props) => {
