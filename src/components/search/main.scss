@@ -6,28 +6,25 @@
     margin-top: 0.5rem;
     padding-top: 0.5rem;
 }
+.mine_main {
+    height: 100%;
+}
 
-.songs_bottom {
-    justify-content: space-between;
-    border-top: 1px solid $primary_color;
-    .songs_bottom_info {
-        flex: 1;
-        overflow: hidden;
-        .songs_bottom_sname {
-            @include text_ellipsis;
-            font-weight: bold;
-        }
-        .songs_bottom_sinfo {
-            @include text_ellipsis;
-            font-size: 0.8rem;
-        }
-    }
-    .songs_bottom_icon {
-        justify-content: center;
-        align-items: center;
-        margin-right: 0.5rem;
-        margin-left: 0.5rem;
-    }
+.at-tabs__body {
+    height: 100%;
+}
+
+.at-tabs-pane--active {
+    height: 100%;
+  }
+
+.search_content_scroll {
+    height: 100%;
+    padding-bottom: 2rem;
+}
+
+.scroll_occupancy {
+    padding: 1.5rem;
 }
 
 .k_playlist_bottom {

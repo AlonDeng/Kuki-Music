@@ -6,7 +6,7 @@ import { AtToast } from "taro-ui"
 import Main from '../../components/search/main'
 import LoadingView from '../../components/common/loadingView/loadingView';
 
-// import './index.scss'
+import './search.scss'
 
 const Search = (props) => {
   const { isRequesting = false, toastInfo = { } } = props;

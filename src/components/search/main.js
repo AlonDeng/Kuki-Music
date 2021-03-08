@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { View, Button, Text, Image, RichText } from '@tarojs/components'
+import { View, Button, Text, Image, ScrollView } from '@tarojs/components'
 import { AtSearchBar, AtTabs, AtTabsPane, AtIcon } from 'taro-ui';
 import Taro, { getCurrentInstance, setNavigationBarTitle } from '@tarojs/taro'
 import _ from 'lodash';
@@ -10,6 +10,9 @@ import { getTotalInfoRequest } from '../../pages/search/search.action';
 
 import KCard from '../common/kCard/kCard';
 import HighLight from '../common/highLight/highLight';
+import SongTab from './components/songTab/songTab';
+import SongItem from './components/songItem/songItem';
+import LoadingView from '../common/loadingView/loadingView';
 
 import './main.scss';
 
@@ -36,19 +39,35 @@ const Main = (props) => {
 
   const searchChangeValue = (data) => {setSearchValue(data);};
 
-  const searchConfirm = () => {};
-
+  const searchConfirm = () => { 
+    setCurrentTab(0);
+    dispatch(getTotalInfoRequest({ keywords: searchValue, type: 1018 }));
+   };
+  
   const switchTab = (cur) => {
-    setCurrentTab(cur); 
+    setCurrentTab(cur);
+    switch (cur) {
+      case 1:
+          dispatch(getTotalInfoRequest({
+            keywords: searchValue,
+            type: 1,
+            limit: 20,
+            offset: _.get(song, 'songsT', []).length,
+          }))
+        break;
+    
+      default:
+        break;
+    }
   };
 
   const notDev = () => { waitDevToast(dispatch) };
 
   useEffect(() => { setNavigationBarTitle({title: `🔍   ${searchValue}`}); }, [searchValue])
-  useEffect(() => { dispatch(getTotalInfoRequest({ keywords: searchValue, type: 1018 })); }, [dispatch, searchValue])
+  useEffect(() => { dispatch(getTotalInfoRequest({ keywords: searchValue, type: 1018 })); }, [])
 
   return (
-    <View className='mine_main flex flex_column' style='padding-bottom: 2rem'>
+    <View className='mine_main flex flex_column'>
       <AtSearchBar
         value={searchValue}
         onChange={(data) => searchChangeValue(data)}
@@ -64,27 +83,19 @@ const Main = (props) => {
       >
         {!isData ? (<View className='flex tab_nodata'>暫無數據</View>) : (
           <AtTabsPane current={currentTab} index={0}>
-          {songs.length > 0 ? (
-            <KCard style={extraStyle} secTitle='> 播放 <' title='單曲' secTitleFn={() => notDev()}>
-              {songs.map((item) => (
-                <View key={_.get(item, 'id', 0)} className='flex flex_row songs_bottom total_crad'>
-                 <View className='flex flex_column songs_bottom_info'>
-                  <HighLight keyword={searchValue} className='songs_bottom_sname' str={_.get(item, 'name', '暫無')} />
-                  <HighLight
-                    keyword={searchValue}
-                    className='songs_bottom_sinfo'
-                    str={`${_.get(item, 'ar[0].name', '')}${_.get(item, 'ar', []).length > 0 ? ' - ' : ''}${_.get(item, 'al.name', '')}`}
-                  />
-                 </View>
-                 <View className='flex songs_bottom_icon' onClick={() => notDev()}>
-                   <AtIcon value='menu' size='15' color='#fff'></AtIcon>
-                 </View>
-               </View>
-              ))}
-              {_.get(song, 'more', false) ? (<View className='flex bottom_all'>{_.get(song, 'moreText', '')} {">"}</View>) : null}
-              
-            </KCard>
-          ) : null}
+            <ScrollView
+              className='search_content_scroll'
+              scrollY
+            >
+              {songs.length > 0 ? (
+                <KCard style={extraStyle} secTitle='> 播放 <' title='單曲' secTitleFn={() => notDev()}>
+                  {songs.map((item) => (
+                    <SongItem key={_.get(item, 'id', 0)} item={item} searchValue={searchValue} />
+                  ))}
+                  {_.get(song, 'more', false) ? (<View className='flex bottom_all'>{_.get(song, 'moreText', '')} {">"}</View>) : null}
+                  
+                </KCard>
+              ) : null}
 
           {playLists.length > 0 ? (
             <KCard style={extraStyle} secTitle='' title='歌單' isSecT={false}>
@@ -165,15 +176,17 @@ const Main = (props) => {
               {_.get(user, 'more', false) ? (<View className='flex bottom_all'>{_.get(user, 'moreText')} {">"}</View>) : null}
             </KCard>
           ) : null}
-          
 
+              <View className='scroll_occupancy' />
+            </ScrollView>
           
-
+          
         </AtTabsPane>
         )}
         
-        <AtTabsPane current={currentTab} index={1}>
-          <View style='font-size:18px;text-align:center;height:100px;'>标签页二的内容</View>
+        <AtTabsPane current={currentTab} index={1} style='background-color: #7B7B7D;'>
+            <LoadingView isLoading={_.get(song, 'songsT', []).length <= 0 && currentTab === 1} />
+            <SongTab data={_.get(song, 'songsT', [])} searchValue={searchValue} isMore={_.get(song, 'hasMore', false)} />
         </AtTabsPane>
         <AtTabsPane current={currentTab} index={2}>
           <View style='font-size:18px;text-align:center;height:100px;'>标签页三的内容</View>

@@ -1,0 +1,23 @@
+@import '../../../../base.scss';
+.songs_bottom {
+    justify-content: space-between;
+    border-top: 1px solid $primary_color;
+    .songs_bottom_info {
+        flex: 1;
+        overflow: hidden;
+        .songs_bottom_sname {
+            @include text_ellipsis;
+            font-weight: bold;
+        }
+        .songs_bottom_sinfo {
+            @include text_ellipsis;
+            font-size: 0.8rem;
+        }
+    }
+    .songs_bottom_icon {
+        justify-content: center;
+        align-items: center;
+        margin-right: 0.5rem;
+        margin-left: 0.5rem;
+    }
+}

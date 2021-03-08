@@ -17,9 +17,10 @@ export function* getTotalInfoSaga({ payload }) {
           url: '/search', 
           params: payload
         });
+      let data;
       switch (payload.type) {
         case 1018:
-          const data = {
+          data = {
             type: payload.type,
             isData: checkObj(result.song || {}, result.playList || {}, result.video || {}, result.artist || {}, result.sim_query || {}, result.user || {}),
             song: result.song || {},
@@ -28,6 +29,15 @@ export function* getTotalInfoSaga({ payload }) {
             artist: result.artist || {},
             sim_query: result.sim_query || {},
             user: result.user || {},
+          }
+          yield put(getTotalInfoSuccess(data));
+          break;
+        case 1:
+          data = {
+            isBottomSearch: _.get(payload, 'isBottomSearch', false),
+            type: payload.type,
+            hasMore: result.hasMore,
+            songsT: result.songs,
           }
           yield put(getTotalInfoSuccess(data));
           break;

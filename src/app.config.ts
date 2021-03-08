@@ -1,9 +1,9 @@
 export default {
   pages: [
+    'pages/song/songDetail/index',
     'pages/search/index',
-    'pages/search/searchTab/index',
     'pages/index/index',
-    // 'pages/searchTab/index',
+    'pages/search/searchTab/index',
     'pages/mine/index',
     'pages/cloudVillage/index',
   ],
@@ -12,5 +12,6 @@ export default {
     navigationBarBackgroundColor: '#808082',
     navigationBarTitleText: 'WeChat',
     navigationBarTextStyle: 'white'
-  }
+  },
+  requiredBackgroundModes: ["audio", "location"]
 }

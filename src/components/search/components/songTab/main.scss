@@ -1,0 +1,18 @@
+@import '../../../../base.scss';
+
+.songTab_playAll {
+    align-items: center;
+    padding-left: 1rem;
+    padding-top: 0.5rem;
+    .songTab_playAll_iconCon {
+        border-radius: 1rem;
+        padding-left: 0.3rem;
+        padding-right: 0.3rem;
+        background-color: $active_color;
+        .songTab_playAll_text {
+            margin-left: 0.2rem;
+            color: $text_color;
+            vertical-align: middle;
+        }
+    }
+}

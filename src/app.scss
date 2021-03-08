@@ -10,6 +10,22 @@
 @import "~taro-ui/dist/style/components/toast.scss";
 @import "~taro-ui/dist/style/components/tabs.scss";
 
+
+@media screen and (min-width: 320px) {     //最小宽度在320以下字体大小是14px
+  page {font-size: 35rpx;}
+}
+
+// @media screen and (min-width: 360px) {     //最小宽度在360以下字体大小是16px
+//   page {font-size: 35rpx;}
+// }
+
+// @media screen and (min-width: 400px) {    //最小宽度在400以下字体大小是18px
+//   page {font-size: 40rpx;}
+// }
+
+// @media screen and (min-width: 440px) {    //最小宽度在440以下字体大小是20px
+//   page {font-size: 40rpx;}
+// }
 page {
   height: 100%;
   background-color: $primary_color;
@@ -55,4 +71,8 @@ page {
 
 .at-tabs__item-underline {
   background-color: $active_color;
+}
+
+.at-tabs__page {
+  height: 100%;
 }

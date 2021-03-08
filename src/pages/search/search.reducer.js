@@ -6,6 +6,7 @@ export const exampleInitialState = {
         isData: false,
         song: {
           songs: [],
+          songsT: [],
         },
         playList: {
           playLists: [],
@@ -39,9 +40,13 @@ function reducer(state = exampleInitialState, { type: actionType, payload }) {
     case actionTypes.TOTAL_INFO_SUCCESS:
       switch (payload.type) {
         case 1:
-          const songsDCopy = _.cloneDeep(state.totalInfo.song.songs)
-          songsDCopy.push(payload.songs);
-          return { ...state, ...{ isRequesting: false, totalInfo: { ...state.totalInfo, song: { ...state.totalInfo.song, ...payload, songs: songsDCopy  } } } };
+          if (!payload.isBottomSearch) {
+            return { ...state, ...{ isRequesting: false, totalInfo: { ...state.totalInfo, song: { ...state.totalInfo.song, ...payload } } } };
+          } else {
+            let songsTDCopy = _.cloneDeep(state.totalInfo.song.songsT)
+            songsTDCopy = [...songsTDCopy, ...payload.songsT];
+            return { ...state, ...{ isRequesting: false, totalInfo: { ...state.totalInfo, song: { ...state.totalInfo.song, ...payload , songsT: songsTDCopy } } } };  
+          }
         case 1000:
           const playListsDCopy = _.cloneDeep(state.totalInfo.playList.playLists)
           playListsDCopy.push(payload.playLists);
@@ -62,12 +67,12 @@ function reducer(state = exampleInitialState, { type: actionType, payload }) {
           return { ...state, ...{ isRequesting: false, totalInfo: {
           ...state.totalInfo,
           isData: payload.isData,
-          song: payload.song,
-          playList: payload.playList,
-          video: payload.video,
-          artist: payload.artist,
-          sim_query: payload.sim_query,
-          user: payload.user,
+          song: { ...state.totalInfo.song, ...payload.song },
+          playList: { ...state.totalInfo.playList, ...payload.playList },
+          video: { ...state.totalInfo.video, ...payload.video },
+          artist: { ...state.totalInfo.artist, ...payload.artist },
+          sim_query: { ...state.totalInfo.sim_query, ...payload.sim_query },
+          user: { ...state.totalInfo.user, ...payload.user },
          } } };
         default:
           return { ...state, ...{ isRequesting: false,  } };
