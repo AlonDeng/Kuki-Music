@@ -11,6 +11,12 @@ export const actionTypes = {
 
     PLAYING_OPEN: `PLAYING_OPEN_${namespace}`,
     PLAYING_CLOSE: `PLAYING_CLOSE_${namespace}`,
+
+    SET_ISNOFIRST: `SET_ISNOFIRST_${namespace}`,
+
+    SET_CURPLAYLIST: `SET_CURPLAYLIST_${namespace}`,
+
+    SET_CURSONGINDEX: `SET_CURSONGINDEX_${namespace}`,
 };
 
 // checkmusic
@@ -24,3 +30,9 @@ export function songDetailInfoFailure(payload) {  return { type: actionTypes.SON
 //set playing
 export function playingOpen(payload) {  return { type: actionTypes.PLAYING_OPEN, payload }; }
 export function playingClose(payload) {  return { type: actionTypes.PLAYING_CLOSE, payload }; }
+
+export function setIsNoFirst(payload) {  return { type: actionTypes.SET_ISNOFIRST, payload }; }
+
+export function setCurPlayList(payload) {  return { type: actionTypes.SET_CURPLAYLIST, payload }; }
+
+export function setCurSongIndex(payload) {  return { type: actionTypes.SET_CURSONGINDEX, payload }; }

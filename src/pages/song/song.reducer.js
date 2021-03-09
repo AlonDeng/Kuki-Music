@@ -8,6 +8,7 @@ export const exampleInitialState = {
   curSongIndex: 0,
   curSongId: 0,
   curPlayList: [],
+  isNoFirst: false,
   isRequesting: false,
 };
 
@@ -28,13 +29,22 @@ function reducer(state = exampleInitialState, { type: actionType, payload = {} }
       return { ...state }; 
 
     case actionTypes.PLAYING_OPEN:
-      if ('curSongId' in payload) {
-        return { ...state, ...{ isPlaying: true, curSongId: payload.curSongId } };
-      } else {
+      // if ('curSongId' in payload) {
+      //   return { ...state, ...{ isPlaying: true, curSongId: payload.curSongId } };
+      // } else {
         return { ...state, ...{ isPlaying: true } };
-      }
+      // }
     case actionTypes.PLAYING_CLOSE:
       return { ...state, ...{ isPlaying: false } }; 
+
+    case actionTypes.SET_ISNOFIRST:
+      return { ...state, ...{ isNoFirst: payload } }
+
+    case actionTypes.SET_CURPLAYLIST:
+      return { ...state, ...{ curPlayList: payload } }
+
+    case actionTypes.SET_CURSONGINDEX:
+      return { ...state, ...{ curSongIndex: payload } }
 
     default:
       return state;

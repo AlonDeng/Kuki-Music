@@ -7,7 +7,7 @@ import _ from 'lodash';
 
 import { songDetailInfoRequest, playingOpen } from '../../../pages/song/song.action'
 
-import KMusic from '../../common/kMusic/kMusic';
+import KMusicBox from '../../common/kMusicBox/kMusicBox';
 
 import './main.scss'
 
@@ -25,7 +25,7 @@ const Main = (props) => {
 
   return (
       <View>
-          <KMusic />
+          <KMusicBox />
       </View>
   );
 };
